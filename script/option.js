@@ -26,12 +26,12 @@ function active(event) {
 let openbtn = optionMenu.getElementsByClassName('open')[0]
 openbtn.addEventListener('click', showOptionMenu)
 function showOptionMenu() {
-    if (optionMenu.style.bottom == '50px') {
-        optionMenu.style.bottom = '-330px';
+    if (optionMenu.style.right == '25px') {
+        optionMenu.style.right = '-245px';
         openbtn.style.transform = ''
     }
     else {
-        optionMenu.style.bottom = '50px'
+        optionMenu.style.right = '25px'
         openbtn.style.transform = 'rotate(180deg)'
     }
 }

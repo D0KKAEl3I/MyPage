@@ -1,18 +1,19 @@
-let canvas = document.querySelector('#background');
-let ctx = canvas.getContext('2d');
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+let backgroundCanvas = document.querySelector('#background');
+let bgctx = backgroundCanvas.getContext('2d');
+backgroundCanvas.width = window.innerWidth;
+backgroundCanvas.height = window.innerHeight;
 
 //UI Control
-let particleMode = 'DOT'
+let particleMode = 'NONE'
 let grabity = 'DOWN'
+let selectedColor = '#101010'
 
 let particleArray = [];
 const numberOfParticles = 400;
 
 window.onresize = function () {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+    backgroundCanvas.width = window.innerWidth;
+    backgroundCanvas.height = window.innerHeight;
 }
 
 const cursor = { x: null, y: null };
@@ -33,16 +34,17 @@ class Particle {
         this.weight = weight;
     }
     draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-        ctx.fillStyle = this.color;
-        ctx.fill();
+        bgctx.beginPath();
+        bgctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
+        bgctx.fillStyle = this.color;
+        bgctx.fill();
     }
     update() {
         this.size -= 0.05;
         if (this.size < 0) {
-            this.x = (cursor.x + ((Math.random() * 60) - 10));
-            this.y = (cursor.y + ((Math.random() * 60) - 10));
+            this.x = (cursor.x + ((Math.random() * 60) - 30));
+            this.y = (cursor.y + ((Math.random() * 60) - 30));
+            this.color = selectedColor
             this.size = (Math.random() * 15) + 10;
             this.weight = (Math.random() * 2) - 0.5;
         }
@@ -55,8 +57,8 @@ class Particle {
 function init() {
     particleArray = [];
     for (let i = 0; i < numberOfParticles; i++) {
-        let x = Math.random() * canvas.width
-        let y = Math.random() * canvas.height
+        let x = Math.random() * backgroundCanvas.width
+        let y = Math.random() * backgroundCanvas.height
         let size = (Math.random() * 15) + 10;
         let color = 'black'
         let weight = 1;
@@ -65,7 +67,7 @@ function init() {
 }
 
 function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    bgctx.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
     for (let i = 0; i < particleArray.length; i++) {
         particleArray[i].update();
         if (particleMode == 'DOT') particleArray[i].draw();
@@ -84,12 +86,12 @@ function connect() {
             let distance = ((particleArray[a].x - particleArray[b].x) * (particleArray[a].x - particleArray[b].x)) + ((particleArray[a].y - particleArray[b].y) * (particleArray[a].y - particleArray[b].y))
             if (distance < 5000) {
                 opacityValue = 1 - distance / 10000
-                ctx.strokeStyle = `rgba(60,60,60,${opacityValue})`
-                ctx.beginPath();
-                ctx.lineWidth = 2;
-                ctx.moveTo(particleArray[a].x, particleArray[a].y)
-                ctx.lineTo(particleArray[b].x, particleArray[b].y)
-                ctx.stroke();
+                bgctx.strokeStyle = selectedColor
+                bgctx.beginPath();
+                bgctx.lineWidth = 2;
+                bgctx.moveTo(particleArray[a].x, particleArray[a].y)
+                bgctx.lineTo(particleArray[b].x, particleArray[b].y)
+                bgctx.stroke();
             }
 
         }

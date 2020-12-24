@@ -9,7 +9,7 @@
 </head>
 
 <body>
-    <section>
+    <section class="info">
 
     </section>
 
@@ -23,12 +23,12 @@
 
     <canvas id="background"></canvas>
     <div class="option-menu">
-        <button class="open">^</button>
+        <button class="open">&#60;</button>
         <ul id="particle-mode" class="option">
             <p>Particle</p>
-            <li onclick="particleMode = this.innerHTML;" class="active">DOT</li>
+            <li onclick="particleMode = this.innerHTML;">DOT</li>
             <li onclick="particleMode = this.innerHTML;">LINE</li>
-            <li onclick="particleMode = this.innerHTML;">NONE</li>
+            <li onclick="particleMode = this.innerHTML;" class="active">NONE</li>
         </ul>
         <ul id="grabity" class="option">
             <p>Grabity</p>
@@ -36,9 +36,15 @@
             <li onclick="grabity = this.innerHTML;">UP</li>
             <li onclick="grabity = this.innerHTML;" class="active">DOWN</li>
         </ul>
+        <ul id="color" class="option">
+            <p>Color</p>
+
+        </ul>
+        <div class="option"></div>
     </div>
     <script src="./script/background.js"></script>
     <script src="./script/option.js"></script>
+    <script src="./script/colorPallete.js"></script>
 </body>
 
 </html>

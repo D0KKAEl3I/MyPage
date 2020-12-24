@@ -3,24 +3,41 @@ img{vertical-align: middle;}
 canvas#background{position: absolute; z-index: -1;}
 
 .option-menu{transition: .5s;
-    height: 360px;
-    justify-content: space-around; background-color: white;
-     position: fixed; right: 20px; bottom: -330px; border-radius: 5px; box-shadow: rgba(175, 175, 175, 0.698) 0 0 20px;
-     padding:5px 10px; display: flex; flex-wrap: wrap; justify-content: space-between; flex-direction: column;}
+    width: 270px;
+    height: 320px;
+    background-color: white;
+    position: fixed; 
+    right: -245px;  bottom: 20px; 
+    border-radius: 5px; box-shadow: rgba(175, 175, 175, 0.698) 0 0 20px;
+    padding:5px 5px; display: flex; flex-wrap: wrap;flex-direction: column;}
 .option-menu>button.open{
     transition: inherit;
+    line-height: 30px;
     width: auto;
-    height: 30px;
+    height: 100%;
     border: none;
     outline: none;
     background-color: transparent;
     font-size: 40px;
 }
 
-.option{margin: 5px 0; width: auto; z-index: 2;  justify-content: space-around;  background-color: white; position: relative; border-radius: 5px; box-shadow: rgba(175, 175, 175, 0.698) 0 0 20px;padding:10px 6px; display: flex; flex-wrap: wrap; flex-direction: column;}
-.option>p{line-height: 1; margin-bottom: 7px;}
+.option{flex:1 1 0;margin: 5px 5px; width: auto; z-index: 2;  justify-content: space-around;  background-color: white; position: relative; border-radius: 5px; box-shadow: rgba(175, 175, 175, 0.698) 0 0 20px;padding:5px; display: flex; flex-wrap: wrap; flex-direction: column;}
+.option>p{width: auto; line-height: 1; margin-bottom: 7px; text-align: center; display: block; width: 100%;}
 .option>li{transition: .4s; font-size: 12px; margin: 0 auto; line-height: 40px; padding: 2px;width: 40px; text-align: center;}
 .option>li.active{background-color: rgb(55, 255, 55); border-radius: 5px;}
-
 #grabity{flex-direction: column;}
 header{height: 15vh; width: 100vw;position: relative;}
+
+#color>p{margin: 2px;}
+#color{
+    display: flex;
+    flex-wrap: wrap;
+    width: 150px;
+    height: auto;
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: center;
+}
+#color>li{
+    margin: 2px;
+}
