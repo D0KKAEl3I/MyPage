@@ -1,0 +1,29 @@
+.info{
+    width: 1240px;
+    margin: 0 auto;
+    height: 600px;
+}
+.info>*{
+    float: left;
+    box-shadow: rgba(128, 128, 128, 0.294) 0 0 8px;
+}
+.info>img{
+    height: 100%;
+}
+
+.textzone{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    width: 50%;
+    background-color: rgb(243, 242, 172);
+}
+.textzone>p{
+    padding-bottom: 4px;
+    border-bottom:rgb(92, 109, 92) 2px solid ;
+    font-size: 30px;
+    color: rgb(92, 109, 92);
+    margin-left: 32px;
+    font-weight: 500;
+}
